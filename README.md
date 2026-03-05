@@ -7,17 +7,18 @@ The project analyzes driver lap data, models tyre degradation, predicts future l
 
 ## Project Overview
 
-Formula 1 teams rely heavily on data and simulations to decide race strategies.
-This project demonstrates a simplified version of how strategy engineers analyze data and simulate race outcomes.
+Formula 1 teams rely heavily on data and simulations to make race strategy decisions.
+This project demonstrates a simplified version of how strategy engineers analyze telemetry data and simulate possible race outcomes.
 
-The simulator:
+The system performs the following tasks:
 
-* Loads real race data using **FastF1**
-* Processes lap times for a selected driver
-* Models lap time degradation
-* Predicts future lap times using **machine learning**
-* Simulates multiple pit stop strategies
-* Recommends the fastest strategy
+* Load real race data using **FastF1**
+* Extract driver lap telemetry
+* Analyze lap time trends
+* Model tyre degradation
+* Predict future lap times using **machine learning**
+* Simulate pit stop strategies
+* Recommend the fastest strategy
 
 ---
 
@@ -42,12 +43,12 @@ Optimal Pit Stop Recommendation
 ## Project Structure
 
 ```
-F1_Race_Strategy_Simulator
+F1_RACE_STRATEGY_SIMULATOR
 │
 ├── analysis
-│   ├── test_fastf1.py            # Test FastF1 data loading
-│   ├── lap_time_predictor.py     # Future lap prediction model
-│   └── strategy_optimizer.py     # Strategy simulation & optimization
+│   ├── test_fastf1.py
+│   ├── lap_time_predictor.py
+│   └── strategy_optimizer.py
 │
 ├── models
 │   ├── plot_utils.py
@@ -56,24 +57,45 @@ F1_Race_Strategy_Simulator
 │   └── strategy_simulator.py
 │
 ├── data
-│   └── cache                     # FastF1 cached race data
+│   └── cache
 │
-├── main.py                       # Entry script
-├── requirements.txt              # Dependencies
+├── images
+│   ├── lap_time_analysis.png
+│   ├── lap_time_prediction.png
+│   └── strategy_comparison.png
+│
 ├── README.md
+├── requirements.txt
 └── .gitignore
 ```
 
 ---
 
-## Technologies Used
+## Visualizations
 
-* Python
-* FastF1 API
-* Pandas
-* NumPy
-* Scikit-Learn
-* Matplotlib
+### Tyre Degradation Analysis
+
+This graph shows the relationship between lap number and lap time, which helps identify tyre degradation patterns during a race stint.
+
+![Tyre Degradation](images/lap_time_analysis.png)
+
+---
+
+### Future Lap Time Prediction
+
+Using a simple machine learning model (Linear Regression), the system predicts future lap times based on past race data.
+
+![Lap Prediction](images/lap_time_prediction.png)
+
+---
+
+### Pit Stop Strategy Comparison
+
+The simulator evaluates different pit stop laps and calculates the total predicted race time for each option.
+
+The best strategy is selected based on the lowest predicted race time.
+
+![Strategy Comparison](images/strategy_comparison.png)
 
 ---
 
@@ -93,38 +115,36 @@ Expected future race time: 3033.33 sec
 
 ---
 
+## Technologies Used
+
+* Python
+* FastF1
+* Pandas
+* NumPy
+* Scikit-Learn
+* Matplotlib
+
+---
+
 ## How to Run
 
-### 1️⃣ Clone the repository
+Clone the repository:
 
 ```
-git clone https://github.com/yourusername/f1-race-strategy-simulator.git
-cd f1-race-strategy-simulator
+git clone https://github.com/Optimus-cloud/f1-race-strategy-simulator.git
 ```
 
-### 2️⃣ Install dependencies
+Install dependencies:
 
 ```
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Run analysis scripts
-
-Load race data:
+Run analysis scripts:
 
 ```
 python analysis/test_fastf1.py
-```
-
-Predict future lap times:
-
-```
 python analysis/lap_time_predictor.py
-```
-
-Run strategy optimizer:
-
-```
 python analysis/strategy_optimizer.py
 ```
 
@@ -132,17 +152,18 @@ python analysis/strategy_optimizer.py
 
 ## Future Improvements
 
-Planned upgrades to make the simulator more realistic:
+Possible improvements for the simulator:
 
 * Tyre compound modelling (Soft / Medium / Hard)
 * Pit stop time loss modelling
 * Tyre age degradation curves
-* Strategy comparison visualization
-* Traffic and safety-car simulation
-* Reinforcement learning based strategy AI
+* Traffic modelling
+* Safety car simulation
+* Reinforcement learning strategy AI
 
 ---
 
 ## Author
 
 Varshini
+
