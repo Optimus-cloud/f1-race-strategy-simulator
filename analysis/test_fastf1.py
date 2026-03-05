@@ -37,4 +37,5 @@ plt.ylabel("Lap Time (seconds)")
 plt.title("Tyre Degradation Trend - VER (Monaco 2023)")
 plt.grid(True)
 
+plt.savefig("images/lap_time_analysis.png")
 plt.show()

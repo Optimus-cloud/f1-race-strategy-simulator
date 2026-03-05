@@ -58,4 +58,5 @@ plt.title("Future Lap Time Prediction")
 plt.legend()
 plt.grid(True)
 
+plt.savefig("images/lap_time_prediction.png")
 plt.show()
